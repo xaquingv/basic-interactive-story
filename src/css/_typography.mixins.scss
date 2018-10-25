@@ -1,0 +1,125 @@
+@mixin guss-typography-defaults($font-family: $f-copy-serif) {
+    @at-root {
+        html {
+            font-family: $font-family;
+            -moz-osx-font-smoothing: grayscale; /* 1 */
+            -webkit-font-smoothing: antialiased; /* 1 */
+        }
+        body {
+            line-height: 1.5; /* 2 */
+        }
+    }
+}
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+    $src: null;
+
+    $extmods: (
+        eot: "?",
+        svg: "#" + str-replace($name, " ", "_")
+    );
+
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype"
+    );
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}
+
+@include font-face('Graphik Light', 'https://assets.propublica.org/prod/v3/fonts/Graphik-Light-Web');
+@include font-face('Graphik Bold', 'https://assets.propublica.org/prod/v3/fonts/Graphik-Bold-Web');
+@include font-face('Graphik', 'https://assets.propublica.org/prod/v3/fonts/Graphik-Regular-Web');
+@include font-face('Tiempos Regular', 'https://assets.propublica.org/prod/v3/fonts/TiemposTextWeb-Regular');
+@include font-face('Tiempos Headline', 'https://assets.propublica.org/prod/v3/fonts/TiemposHeadlineWeb-Bold');
+@include font-face('Tiempos Light', 'https://assets.propublica.org/prod/v3/fonts/TiemposHeadlineWeb-Light');
+
+@mixin font-size($size, $line-height: $size) {
+    font-size: convert-to-px($size);
+    line-height: $line-height;
+}
+
+@mixin font($family, $weight, $size, $line-height: $size) {
+    font-family: $family;
+    font-weight: $weight;
+    @include font-size($size, $line-height);
+}
+
+@mixin f-prominent-sans { font-family:'Graphik Light', Helvetica, Arial, sans-serif; }
+
+
+@mixin fs-prominent-sans($level, $size-only: false) {
+    @include font-size(get-font-size(prominent, $level), get-line-height(prominent, $level));
+
+    @if $size-only == false {
+        @include f-prominent-sans;
+    }
+}
+
+@mixin f-headline-sans { font-family:'Graphik Bold', Helvetica, Arial, sans-serif; }
+
+@mixin fs-headline-sans($level, $size-only: false) {
+    @include font-size(get-font-size(headline, $level), get-line-height(headline, $level));
+
+    @if $size-only == false {
+        @include f-headline-sans;
+    }
+}
+
+@mixin f-copy-sans { font-family:'Graphik', Helvetica, Arial, sans-serif; }
+
+
+@mixin fs-copy-sans($level, $size-only: false) {
+    @include font-size(get-font-size(copy, $level), get-line-height(copy, $level));
+
+    @if $size-only == false {
+        @include f-copy-sans;
+    }
+}
+
+@mixin f-prominent-serif {
+    font-family:'Tiempos Regular', Georgia, serif;
+}
+
+@mixin fs-prominent-serif($level, $size-only: false) {
+    @include font-size(get-font-size(prominent, $level), get-line-height(prominent, $level));
+
+    @if $size-only == false {
+        @include f-prominent-serif;
+    }
+}
+
+@mixin f-headline-serif {
+    font-family:'Tiempos Headline', Georgia, serif;
+}
+
+@mixin fs-headline-serif($level, $size-only: false) {
+    @include font-size(get-font-size(headline, $level), get-line-height(headline, $level));
+
+    @if $size-only == false {
+        @include f-headline-serif;
+    }
+}
+
+@mixin f-copy-serif {
+    font-family:'Tiempos Regular', Georgia, serif;
+}
+
+@mixin fs-copy-serif($level, $size-only: false) {
+    @include font-size(get-font-size(copy, $level), get-line-height(copy, $level));
+
+    @if $size-only == false {
+        @include f-copy-serif;
+    }
+}

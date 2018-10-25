@@ -1,0 +1,48 @@
+h1, h2, h3, p {
+	white-space: pre-line;
+	color:#333;
+}
+
+h1 {
+	
+	@include fs-headline-serif(6);
+	color:#333;
+	margin:auto;
+	padding-top:0;
+	padding-bottom:0;
+	padding-left:10px;
+
+	@media (min-width: map-get($mq-breakpoints, desktop)) {
+	    @include fs-headline-serif(8);
+		padding-top:20px;
+		padding-left:0px;
+	}
+
+}
+
+p {
+	a {
+		color:inherit;
+		opacity: 1;
+		text-decoration:none;
+	  	display: inline;
+	}
+
+	a:hover {
+		color:inherit;
+	}
+}
+
+h3 {
+
+	@include fs-headline-sans(3);
+	font-weight:300;
+	padding-top:0px;
+	@media (min-width: map-get($mq-breakpoints, desktop)) {
+	    @include fs-headline-sans(4);
+	}
+	margin:auto;
+	margin-bottom: 10px;
+	margin-top:30px;
+
+}

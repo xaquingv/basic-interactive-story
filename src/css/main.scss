@@ -1,0 +1,47 @@
+@import "fonts";
+@import "mq";
+@import "general";
+
+@import "layout";
+@import "scrolly";
+
+.interactive {
+	position: relative;
+
+	&:before, &:after {
+		background: rgba(51,51,51,0.05);
+		bottom: 0;
+		position: absolute;
+		content: ' ';
+		top: 0;
+	}
+}
+
+.interactive-block {
+	position:relative;
+    margin: 0;
+    padding-top:30px;
+
+    &.intro {
+    	padding-top:0px;
+    }
+
+    &.header {
+    	padding-top:10px;
+    }
+
+    &.scrolly {
+    	padding-bottom: 0;
+    }
+
+    &.table {
+        padding-top: 0;
+    }
+
+
+
+}
+
+footer {
+    padding-bottom: 0!important;
+}

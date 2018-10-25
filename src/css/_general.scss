@@ -1,0 +1,39 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+
+*:focus {outline:none !important}
+
+body,
+figure.interactive {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+a {
+    &,
+    &:hover,
+    &:active {
+        color: #005689;
+    }
+
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.interactive {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+}

@@ -1,0 +1,7 @@
+tmp
+node_modules
+jspm_packages
+build
+deploy
+cfg/credentials.json
+cfg/s3.json
