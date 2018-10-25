@@ -36,7 +36,7 @@
       "json": "github:systemjs/plugin-json@^0.1.0",
       "reqwest": "github:ded/reqwest@^1.1.5",
       "scrollama": "npm:scrollama@^1.4.4",
-      "stickyfill": "npm:stickyfill@^1.1.1-strict",
+      "stickyfill": "npm:stickyfill@^1.1.1-strict"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.21",
@@ -53,5 +53,6 @@
     "jspm-github": "^0.13.18",
     "reqwest": "^2.0.5",
     "scrollama": "^1.4.4",
+    "xhr2": "^0.1.4"
   }
 }
