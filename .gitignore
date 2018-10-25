@@ -3,5 +3,6 @@ node_modules
 jspm_packages
 build
 deploy
+package-lock.json
 cfg/credentials.json
 cfg/s3.json
